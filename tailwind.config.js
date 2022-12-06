@@ -5,7 +5,70 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {}
+    colors: {
+      'red': {
+        DEFAULT: '#F85A3E',
+        '50': '#FEF1EF',
+        '100': '#FEE1DB',
+        '200': '#FCBFB4',
+        '300': '#FB9D8D',
+        '400': '#F97C65',
+        '500': '#F85A3E',
+        '600': '#F52C09',
+        '700': '#BF2307',
+        '800': '#891905',
+        '900': '#530F03'
+      },
+      'orange': {
+        DEFAULT: '#FF7733',
+        '50': '#FFF1EB',
+        '100': '#FFE4D6',
+        '200': '#FFC9AD',
+        '300': '#FFAD85',
+        '400': '#FF925C',
+        '500': '#FF7733',
+        '600': '#FA5300',
+        '700': '#C24100',
+        '800': '#8A2E00',
+        '900': '#521B00'
+      },
+      'yellow': {
+        DEFAULT: '#FFBA08',
+        '50': '#FFEDC0',
+        '100': '#FFE8AB',
+        '200': '#FFDC82',
+        '300': '#FFD15A',
+        '400': '#FFC531',
+        '500': '#FFBA08',
+        '600': '#CF9500',
+        '700': '#976D00',
+        '800': '#5F4400',
+        '900': '#271C00'
+      },
+      'white': '#FFFFFF',
+      'black': '#000000',
+    },
+    extend: {
+      animation: {
+        blob: "blob 7s infinite",
+      },
+      keyframes: {
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+          "33%": {
+            transform: "translate(20px, -40px) scale(1.1)",
+          },
+          "66%": {
+            transform: "translate(-10px, 10px) scale(0.9)",
+          },
+          "100%": {
+            transform: "tranlate(0px, 0px) scale(1)",
+          },
+        },
+      },
+    },
   },
   plugins: [],
 }

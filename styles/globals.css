@@ -6,4 +6,21 @@
   html {
     font-family: Lato, system-ui, sans-serif;
   }
+
+  .radial-1 {
+    background-image: radial-gradient(
+      farthest-corner at 40px 40px,
+      #F85A3E 0%,
+      #FFBA08 100%
+    );
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
 }
