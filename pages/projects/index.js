@@ -1,4 +1,3 @@
-import Image from "next/image";
 import CaseStudy from "../../components/CaseStudy";
 
 const caseStudies = [

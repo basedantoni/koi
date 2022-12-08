@@ -1,4 +1,4 @@
-import { BarChart, ChevronDown, File, Layers, Menu, MousePointer, Navigation, Shield, X } from 'react-feather'
+import { BarChart, Menu, MousePointer, Shield, X } from 'react-feather'
 import { Fragment } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
@@ -35,7 +35,9 @@ export default function Navbar () {
 
   return (    
     <div className="flex justify-between items-center px-6 pt-8 sm:px-12">
-      <h1 className="text-4xl font-extrabold">KOI</h1>
+      <Link href={"/"}>
+        <h1 className="text-4xl font-extrabold">KOI</h1>
+      </Link>
       <Popover className="relative bg-white">
         <div className="flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
           <div className="-my-2 -mr-2 md:hidden">
