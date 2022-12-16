@@ -1,9 +1,17 @@
 import FloatingBalls from "../components/FloatingBalls";
 import Image from 'next/image';
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        opacity: { duration: 2 },
+        ease: "easeIn",
+      }}
+    >
       <section className="px-6 py-16 sm:px-[170px] sm:py-32 sm:grid grid-cols-12 gap-5">
         <div className="lg:w-[512px] lg:col-start-2 xl:col-span-6">
           <h1 className="font-bold text-4xl">
@@ -15,14 +23,15 @@ export default function Home() {
         <div className="col-start-8 col-span-8">
           <Image
             className="mt-16 sm:mt-0 rounded-md"
-            src="/../public/images/sunset.webp"
+            src={'/images/sunset.webp'}
             alt="picture of sunset"
             width={700}
             height={700}
           />
         </div>
       </section>
+
       <FloatingBalls />
-    </>
+    </motion.div>
   )
 }
