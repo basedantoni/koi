@@ -7,6 +7,18 @@
     font-family: Lato, system-ui, sans-serif;
   }
 
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+  }
+
   .radial-1 {
     background-image: radial-gradient(
       farthest-corner at 40px 40px,
@@ -17,18 +29,17 @@
 
   .radial-2 {
     background-image: radial-gradient(
-      farthest-corner at 80px 40px,
-      #F85A3E 0%,
+      farthest-corner at 70px 60px,
+      #F85A3E 10%,
       #FFBA08 100%
     );
   }
-}
 
-@layer utilities {
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  .animation-delay-4000 {
-    animation-delay: 4s;
+  .radial-3 {
+    background-image: radial-gradient(
+      farthest-corner at 10px 30px,
+      #F85A3E 20%,
+      #FFBA08 100%
+    );
   }
 }
