@@ -1,5 +1,6 @@
 import FloatingBalls from "../components/FloatingBalls";
 import Image from 'next/image';
+import koi from '../public/images/sunset.webp'
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -23,10 +24,8 @@ export default function Home() {
         <div className="col-start-8 col-span-8">
           <Image
             className="mt-16 sm:mt-0 rounded-md"
-            src={'/images/sunset.webp'}
-            alt="picture of sunset"
-            width={700}
-            height={700}
+            src={koi}
+            alt="landing page picture"
           />
         </div>
       </section>

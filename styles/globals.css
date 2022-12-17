@@ -7,6 +7,18 @@
     font-family: Lato, system-ui, sans-serif;
   }
 
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+  }
+
   .radial-1 {
     background-image: radial-gradient(
       farthest-corner at 40px 40px,
