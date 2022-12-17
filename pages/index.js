@@ -2,8 +2,14 @@ import FloatingBalls from "../components/FloatingBalls";
 import Image from 'next/image';
 import koi from '../public/images/sunset.webp'
 import { motion } from "framer-motion";
+import {useRef} from 'react';
 
 export default function Home() {
+  const contactRef = useRef(null)
+  const handleClick = () => {
+    contactRef.current?.scrollIntoView({behavior: 'smooth'})
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -18,7 +24,7 @@ export default function Home() {
           <h1 className="font-bold text-4xl">
             We build your digital presence with a mixture of <span className="text-yellow-500">art</span> and <span className="text-yellow-500">professionalism.</span>
           </h1>
-          <button type="button" className="mt-4 sm:mt-6 inline-flex items-center rounded bg-red-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">GET IN TOUCH</button>
+          <button onClick={handleClick} type="button" className="mt-4 sm:mt-6 inline-flex items-center rounded bg-red-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">GET IN TOUCH</button>
         </div>
 
         <div className="col-start-8 col-span-8">
@@ -31,6 +37,39 @@ export default function Home() {
       </section>
 
       <FloatingBalls />
+
+      <section ref={contactRef} className="my-16 px-6 py-16 sm:w-full sm:px-[170px] sm:py-32 flex flex-col items-center">
+        <div>
+          <h1 className="sm:text-[80px]">Contact Us</h1>
+        </div>
+
+        <div className="flex flex-wrap sm:w-[700px] justify-between mt-6 sm:mt-16">
+          <div>
+            <p className="text-lg">Email us:</p>
+            <p className="font-extrabold text-3xl text-yellow-400">koi@gmail.com</p>
+          </div>
+          <div className="sm:w-96 mt-4 sm:mt-0">
+            <p>If you&apos;ve got any wild ideas, burning questions, or pressing needs, our team is all ears. Let&apos;s make this a collaboration for the ages!</p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap sm:w-[700px] justify-between sm:mt-16 mt-12">
+          <input placeholder="Full Name" type="text" class="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm"></input>
+          <input placeholder="Company" type="text" class="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm sm:mt-0 mt-4"></input>
+        </div>
+
+        <div className="flex sm:w-[700px] mt-4 sm:mt-16">
+          <input placeholder="Email" type="text" class="form-input w-80 sm:w-full px-4 py-3 border border-gray-gray-500 rounded-sm"></input>
+        </div>
+
+        <div className="flex sm:w-[700px] mt-4 sm:mt-16">
+          <textarea placeholder="What is your project about?" class="form-input px-4 py-3 w-80 sm:w-full h-48 border border-gray-gray-500 rounded-sm"></textarea>
+        </div>
+
+        <div className="flex sm:w-[700px] justify-end">
+          <button type="button" className="w-24 justify-center mt-4 sm:mt-6 inline-flex items-center rounded bg-red-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">SUBMIT</button>
+        </div>
+      </section>
     </motion.div>
   )
 }
