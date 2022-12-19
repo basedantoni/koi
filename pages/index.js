@@ -53,17 +53,17 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-wrap sm:w-[700px] justify-between sm:mt-16 mt-12">
-          <input placeholder="Full Name" type="text" class="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm"></input>
-          <input placeholder="Company" type="text" class="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm sm:mt-0 mt-4"></input>
+        <div className="flex flex-wrap sm:w-[700px] justify-center sm:justify-between sm:mt-16 mt-12">
+          <input placeholder="Full Name" type="text" className="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm"></input>
+          <input placeholder="Company" type="text" className="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm sm:mt-0 mt-4"></input>
         </div>
 
         <div className="flex sm:w-[700px] mt-4 sm:mt-16">
-          <input placeholder="Email" type="text" class="form-input w-80 sm:w-full px-4 py-3 border border-gray-gray-500 rounded-sm"></input>
+          <input placeholder="Email" type="text" className="form-input w-80 sm:w-full px-4 py-3 border border-gray-gray-500 rounded-sm"></input>
         </div>
 
         <div className="flex sm:w-[700px] mt-4 sm:mt-16">
-          <textarea placeholder="What is your project about?" class="form-input px-4 py-3 w-80 sm:w-full h-48 border border-gray-gray-500 rounded-sm"></textarea>
+          <textarea placeholder="What is your project about?" className="form-input px-4 py-3 w-80 sm:w-full h-48 border border-gray-gray-500 rounded-sm"></textarea>
         </div>
 
         <div className="flex sm:w-[700px] justify-end">
