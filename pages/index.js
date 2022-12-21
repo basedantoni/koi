@@ -36,9 +36,7 @@ export default function Home() {
     return isValid;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async () => {
     let isValidForm = handleValidation();
 
     const res = await sendContactForm({ fullName, company, email, message })
@@ -48,6 +46,11 @@ export default function Home() {
       console.log(error);
       return;
     }
+
+    setFullName('')
+    setCompany('')
+    setEmail('')
+    setMessage('')
   }
 
   const contactRef = useRef(null)
@@ -83,7 +86,7 @@ export default function Home() {
 
       <FloatingBalls />
 
-      <section ref={contactRef} className="my-16 px-6 py-16 sm:w-full sm:px-[170px] sm:py-32 flex flex-col items-center">
+      <form ref={contactRef} className="my-16 px-6 py-16 sm:w-full sm:px-[170px] sm:py-32 flex flex-col items-center">
         <div>
           <h1 className="sm:text-[80px]">Contact Us</h1>
         </div>
@@ -143,7 +146,7 @@ export default function Home() {
             SUBMIT
           </button>
         </div>
-      </section>
+      </form>
     </motion.div>
   )
 }
