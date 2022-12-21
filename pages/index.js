@@ -3,6 +3,7 @@ import Image from 'next/image';
 import koi from '../public/images/sunset.webp'
 import { motion } from "framer-motion";
 import { useRef, useState } from 'react';
+import { sendContactForm } from "../lib/api";
 
 export default function Home() {
   const [fullName, setFullName] = useState("")
@@ -40,19 +41,9 @@ export default function Home() {
 
     let isValidForm = handleValidation();
 
-    const res = await fetch("/api/sendgrid", {
-      body: JSON.stringify({
-        email: email,
-        fullname: fullName,
-        message: message,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    });
+    const res = await sendContactForm({ fullName, company, email, message })
 
-    const { error } = await res.json();
+    const { error } = await res;
     if (error) {
       console.log(error);
       return;
