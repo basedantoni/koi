@@ -2,9 +2,63 @@ import FloatingBalls from "../components/FloatingBalls";
 import Image from 'next/image';
 import koi from '../public/images/sunset.webp'
 import { motion } from "framer-motion";
-import {useRef} from 'react';
+import { useRef, useState } from 'react';
 
 export default function Home() {
+  const [fullName, setFullName] = useState("")
+  const [company, setCompany] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+
+  //   Form validation state
+  const [errors, setErrors] = useState({});
+
+  const handleValidation = () => {
+    let tempErrors = {};
+    let isValid = true;
+
+    if (fullName.length <= 0) {
+      tempErrors["fullname"] = true;
+      isValid = false;
+    }
+    if (email.length <= 0) {
+      tempErrors["email"] = true;
+      isValid = false;
+    }
+    if (message.length <= 0) {
+      tempErrors["message"] = true;
+      isValid = false;
+    }
+
+    setErrors({ ...tempErrors });
+
+    return isValid;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let isValidForm = handleValidation();
+
+    const res = await fetch("/api/sendgrid", {
+      body: JSON.stringify({
+        email: email,
+        fullname: fullName,
+        message: message,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+  }
+
   const contactRef = useRef(null)
   const handleClick = () => {
     contactRef.current?.scrollIntoView({behavior: 'smooth'})
@@ -54,20 +108,49 @@ export default function Home() {
         </div>
 
         <div className="flex flex-wrap sm:w-[700px] justify-center sm:justify-between sm:mt-16 mt-12">
-          <input placeholder="Full Name" type="text" className="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm"></input>
-          <input placeholder="Company" type="text" className="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm sm:mt-0 mt-4"></input>
+          <input
+            placeholder="Full Name"
+            type="text"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            className="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm"
+          />
+          <input
+            placeholder="Company"
+            type="text"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            className="form-input w-80 px-4 py-3 border border-gray-gray-500 rounded-sm sm:mt-0 mt-4"
+          />
         </div>
 
         <div className="flex sm:w-[700px] mt-4 sm:mt-16">
-          <input placeholder="Email" type="text" className="form-input w-80 sm:w-full px-4 py-3 border border-gray-gray-500 rounded-sm"></input>
+          <input
+            placeholder="Email"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-input w-80 sm:w-full px-4 py-3 border border-gray-gray-500 rounded-sm"
+          />
         </div>
 
         <div className="flex sm:w-[700px] mt-4 sm:mt-16">
-          <textarea placeholder="What is your project about?" className="form-input px-4 py-3 w-80 sm:w-full h-48 border border-gray-gray-500 rounded-sm"></textarea>
+          <textarea
+            placeholder="What is your project about?"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="form-input px-4 py-3 w-80 sm:w-full h-48 border border-gray-gray-500 rounded-sm"
+          />
         </div>
 
         <div className="flex sm:w-[700px] justify-end">
-          <button type="button" className="w-24 justify-center mt-4 sm:mt-6 inline-flex items-center rounded bg-red-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">SUBMIT</button>
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="w-24 justify-center mt-4 sm:mt-6 inline-flex items-center rounded bg-red-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+          >
+            SUBMIT
+          </button>
         </div>
       </section>
     </motion.div>
