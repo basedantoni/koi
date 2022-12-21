@@ -93,8 +93,7 @@ export default function Home() {
 
         <div className="flex flex-wrap sm:w-[700px] justify-between mt-6 sm:mt-16">
           <div>
-            <p className="text-lg">Email us:</p>
-            <p className="font-extrabold text-3xl text-yellow-400">koi@gmail.com</p>
+            <p className="text-3xl font-bold text-yellow-400">Email us:</p>
           </div>
           <div className="sm:w-96 mt-4 sm:mt-0">
             <p>If you&apos;ve got any wild ideas, burning questions, or pressing needs, our team is all ears. Let&apos;s make this a collaboration for the ages!</p>
