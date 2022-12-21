@@ -3,9 +3,9 @@ import Image from "next/image"
 export default function CaseStudy ({ imageSrc, studyName, studyDescription }) {
   return (
     <div className="sm:flex sm:even:flex-row-reverse sm:my-[78px]">
-      <div className="sm:w-[650px] sm:h-[372px] sm:bg-orange-500">
+      <div className="flex justify-center sm:w-[650px] sm:h-[372px] sm:bg-orange-500">
         <Image
-          className="mt-16 mb-4 w-full sm:w-[459px] sm:object-scale-down"
+          className="mt-16 mb-4 w-full max-h-64 sm:w-[459px] sm:object-scale-down"
           src={imageSrc}
           alt="picture of case study"
           width={320}
