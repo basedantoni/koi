@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function About () {
   return (
     <>
-      <div className="lg:my-16 px-6 lg:px-24">
+      <div className="mt-16 lg:my-16 px-6 lg:px-24">
         <div className="relative flex flex-col h-96 sm:h-screen w-full text-center">
           <h1 className="z-10 font-light text-4xl md:text-5xl lg:text-4xl text-white mt-32 my-4">About Us</h1>
           <h1 className="z-10 font-light text-4xl md:text-5xl lg:text-9xl text-white">Design <span className='font-serif font-thin'>for</span> you</h1>

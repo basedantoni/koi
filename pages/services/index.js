@@ -31,7 +31,7 @@ export default function Services () {
   };
 
   return (
-    <div className="my-16 px-6 sm:px-[170px] sm:grid grid-cols-12 gap-5 xl:px-80">
+    <div className="my-16 mt-32 px-6 sm:px-[170px] sm:grid grid-cols-12 gap-5 xl:px-80">
       <div className='col-span-6 mt-8 sm:mt-16 sm:w-96'>
         <div className="sm:w-full">
           <motion.div

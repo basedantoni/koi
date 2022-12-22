@@ -1,115 +1,77 @@
-import { BarChart, Menu, MousePointer, Shield, X } from 'react-feather'
+import { BarChart, MousePointer, Shield, Menu as MenuIcon } from 'react-feather'
 import { Fragment } from 'react'
 import Link from 'next/link'
-import { Popover, Transition } from '@headlessui/react'
+import { Menu, Transition } from '@headlessui/react'
 
 export default function Navbar () {
-  const openMenu = () => {
-    
-  }
-
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
-
-  const solutions = [
+const navItems = [
     {
       name: 'Our Work',
-      description: 'Get a better understanding of where your traffic is coming from.',
-      href: '#',
-      icon: BarChart,
+      href: '/projects',
+      icon: <BarChart className='stroke-1' aria-hidden="true"/>,
     },
     {
       name: 'Services',
-      description: 'Speak directly to your customers in a more meaningful way.',
-      href: '#',
-      icon: MousePointer,
+      href: '/services',
+      icon: <MousePointer className='stroke-1' aria-hidden="true"/>,
     },
     {
       name: 'About Us',
-      description: "Your customers' data will be safe and secure.",
-      href: '#',
-      icon: Shield
+      href: '/about',
+      icon: <Shield className='stroke-1' aria-hidden="true"/>
     },
   ]
 
   return (    
-    <div className="flex justify-between items-center px-6 pt-8 sm:px-12">
+    <div className="flex justify-between items-center px-6 pt-8 sm:px-12 z-30">
       <Link href={"/"}>
         <h1 className="text-4xl font-extrabold">KOI</h1>
       </Link>
-      <Popover className="relative">
-        <div className="flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
-          <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500">
-              <span className="sr-only">Open menu</span>
-              <Menu
+      
+      <div className='flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start md:space-x-10'>
+        <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
+          <Link href="/projects" className="text-base font-medium text-gray-500 hover:text-gray-900 mx-4">
+            Our Work
+          </Link>
+          <Link href="/services" className="text-base font-medium text-gray-500 hover:text-gray-900 mx-4">
+            Services
+          </Link>
+          <Link href="/about" className="text-base font-medium text-gray-500 hover:text-gray-900 ml-4">
+            About Us
+          </Link>
+        </div>
+
+        <Menu as="div" className="relative inline-block text-left bg-white">
+          <div>
+            <Menu.Button>
+              <MenuIcon
                 className="sm:hidden"
-                onClick={openMenu}
                 size={40}
               />
-            </Popover.Button>
+            </Menu.Button>
           </div>
-          <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
-            <Popover.Group as="nav" className="flex space-x-10">
-              <Link href="/projects" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                Our Work
-              </Link>
-              <Link href="/services" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                Services
-              </Link>
-              <Link href="/about" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                About Us
-              </Link>
-            </Popover.Group>
-          </div>
-        </div>
-      
-        <Transition
-          as={Fragment}
-          enter="duration-200 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="duration-100 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Popover.Panel focus className="absolute inset-x-0 top-0 origin-top-left transform p-2 transition md:hidden">
-            <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="px-5 pt-5 pb-6">
-                <div className="flex items-center justify-between">
-                  <div className="-mr-2">
-                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500">
-                      <span className="sr-only">Close menu</span>
-                      <X
-                        className="sm:hidden"
-                        onClick={openMenu}
-                        size={40}
-                      />
-                    </Popover.Button>
-                  </div>
-                </div>
-                <div className="mt-6">
-                  <nav className="grid gap-6">
-                    {solutions.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50"
+
+            <Menu.Items className="absolute right-0 mt-2 w-64 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="px-1 py-1">
+                {navItems.map(({ name, href, icon }) => (
+                  <Menu.Item key={name}>
+                    {({ active }) => (
+                      <Link
+                        href={href}
+                        className={`${
+                          active ? 'bg-yellow-500 text-white' : 'text-gray-900'
+                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                       >
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-yellow-500 text-white">
-                          <item.icon size={24} aria-hidden="true" />
-                        </div>
-                        <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
-                      </a>
-                    ))}
-                  </nav>
-                </div>
+                        { icon }
+                        <p className='mx-4'>{ name }</p>
+                      </Link>
+                    )}
+                  </Menu.Item>
+                ))}
               </div>
-            </div>
-          </Popover.Panel>
-        </Transition>
-      </Popover>
+            </Menu.Items>
+        </Menu>
+      </div>
     </div>
   )
 }
