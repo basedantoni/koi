@@ -9,9 +9,9 @@ const caseStudies = [
 
 export default function Projects () {
   return (
-    <>
-      <div className="mt-16 mb-32 px-6">
-        <h1 className="font-bold text-4xl sm:text-center">Browse our latest and greatest</h1>
+    <div className="xl:ml-64 xl:border-l-2 xl:pl-24 px-6">
+      <div className="mt-16 mb-12 sm:mb-32 pt-12">
+        <h1 className="font-bold text-7xl md:text-9xl uppercase">Our Work</h1>
       </div>
 
       {caseStudies.map(({ name, description, imageSrc }) => (
@@ -22,6 +22,6 @@ export default function Projects () {
           imageSrc={imageSrc}
         />
       ))}
-    </>
+    </div>
   )
 }
