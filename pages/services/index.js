@@ -1,4 +1,4 @@
-import { Aperture, Compass, Monitor } from 'react-feather'
+import { Aperture, BookOpen, Compass, DollarSign, Dribbble, Monitor } from 'react-feather'
 import FloatingBalls from '../../components/FloatingBalls'
 import ServiceCard from '../../components/ServiceCard'
 import AnimatedText from "../../components/AnimatedText";
@@ -10,8 +10,11 @@ export default function Services () {
 
   const services = [
     { icon: <Aperture className='stroke-1' size={56} aria-hidden="true"/>, title: 'UX/UI Design', description: 'We create beautiful, functional, and intuitive apps and websites that feel natural in every aspect.'},
-    { icon: <Monitor className='stroke-1' size={56} aria-hidden="true"/>, title: 'Website Design', description: 'We create beautiful, functional, and intuitive apps and websites that feel natural in every aspect.'},
-    { icon: <Compass className='stroke-1' size={56} aria-hidden="true"/>, title: 'SEO', description: 'We create beautiful, functional, and intuitive apps and websites that feel natural in every aspect.'},
+    { icon: <Monitor className='stroke-1' size={56} aria-hidden="true"/>, title: 'Website Design', description: 'We offer comprehensive web design services to help businesses improve their online presence and enhance the user experience for their target audience through visually appealing and functional websites.'},
+    { icon: <Dribbble className='stroke-1' size={56} aria-hidden="true"/>, title: 'Graphic Design', description: 'Professional graphic design services to elevate the visual aspect of your brand, including logo design, branding materials, and marketing collateral.'},
+    { icon: <BookOpen className='stroke-1' size={56} aria-hidden="true"/>, title: 'Copywriting', description: 'We craft compelling and engaging content for your website, emails, advertisements, and other marketing materials to effectively communicate your brand message and value proposition to your audience.'},
+    { icon: <Compass className='stroke-1' size={56} aria-hidden="true"/>, title: ' SEO', description: 'Maximizing your online visibility through search engine optimization (SEO) strategies, including keyword research, on-page optimization, and technical SEO to improve your website\'s ranking on search engines like Google.'},
+    { icon: <DollarSign className='stroke-1' size={56} aria-hidden="true"/>, title: 'Advertising', description: 'Reach your target audience through targeted advertising campaigns on platforms like Google Ads, social media, and other channels to drive qualified traffic and leads to your website.'},  
   ]
   
   const placeholderText = [
