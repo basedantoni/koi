@@ -3,7 +3,7 @@ import galaso from '../../public/images/galaso-project.webp'
 import seventyone from '../../public/images/71.webp'
 
 const caseStudies = [
-  { name: 'Galaso', description: "We are proud to have had the opportunity to work with Galaso on the promotion of their latest album. As a digital marketing agency, it's our job to help artists connect with their audience and increase their reach through effective online strategies.", imageSrc: galaso },
+  { name: 'GALASO', description: "We are proud to have had the opportunity to work with GALASO on the promotion of their latest album. As a digital marketing agency, it's our job to help artists connect with their audience and increase their reach through effective online strategies.", imageSrc: galaso },
   { name: 'SEVEN7Y-ONE', description: "Our digital marketing agency recently had the pleasure of working on an email ad campaign for an eco-friendly water bottle company. It was a rewarding experience, as we were able to use our expertise to not only showcase the benefits of the company's sustainable products, but also drive conversions and sales.", imageSrc: seventyone },
 ]
 

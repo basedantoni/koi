@@ -1,6 +1,6 @@
 import FloatingBalls from "../components/FloatingBalls";
 import Image from 'next/image';
-import koi from '../public/images/sunset.webp'
+import koi from '../public/images/landing-page.png'
 import { motion } from "framer-motion";
 import { useRef, useState } from 'react';
 import { sendContactForm } from "../lib/api";

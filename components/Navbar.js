@@ -41,7 +41,7 @@ const navItems = [
           </Link>
         </div>
 
-        <Menu as="div" className="relative inline-block text-left bg-white">
+        <Menu as="div" className="relative inline-block text-left bg-transparent">
           <div>
             <Menu.Button>
               <MenuIcon
