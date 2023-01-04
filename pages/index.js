@@ -78,7 +78,7 @@ export default function Home() {
         <div className="col-start-8 col-span-8">
           <Image
             className="mt-16 sm:mt-0 rounded-md"
-            src={koi}
+            src={advertiti}
             alt="landing page picture"
           />
         </div>

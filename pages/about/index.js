@@ -1,4 +1,4 @@
-import koi from '../../public/images/koi-fish.webp'
+import advertiti from '../../public/images/advertiti-fish.webp'
 import galaso from '../../public/images/galaso-about.webp'
 import alive from '../../public/images/alive.webp'
 import Image from 'next/image'
@@ -12,14 +12,14 @@ export default function About () {
           <h1 className="z-10 font-light text-4xl md:text-5xl lg:text-9xl text-white">Design <span className='font-serif font-thin'>for</span> you</h1>
           <Image
             className="mt-16 sm:mt-0 rounded-md w-full max-h-[48rem] object-cover absolute top-0 left-0 right-0 bottom-0"
-            src={koi}
-            alt="about us koi"
+            src={advertiti}
+            alt="about us advertiti"
           />
         </div>
 
         <div className='sm:mt-16 flex flex-col'>
           <h2>Who we are</h2>
-          <p>Made in Austin, Texas</p>
+          <p>Made in Bali, Indonesia</p>
           <hr className='my-8 border border-black' />
           <p className='text-2xl leading-snug md:text-7xl'>We are a team of skilled and passionate professionals, dedicated to helping our clients achieve their business goals through effective online marketing strategies.</p>
           <div className='lg:w-[32rem] lg:mx-32 2xl:mx-64 mt-4 lg:mt-16 self-end'>
@@ -32,7 +32,7 @@ export default function About () {
           <Image
             className="rounded-md w-full object-cover"
             src={galaso}
-            alt="about us koi"
+            alt="about us advertiti"
           />
         </div>
 
